@@ -1,42 +1,35 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
+body, #root {
+  background-color: #ffffff;
+}
+
+/* Timer Box Styling */
+.timer-box {
+  border: 4px solid #b91c1c; /* darker red border */
+  background-color: #f87171;
   padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+  max-width: 480px;
   text-align: center;
+  color: #ffffff;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.timer-box.pomodoro {
+  border-color: #b91c1c;
+  background-color: #f87171;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.timer-box.shortBreak {
+  border-color: #1d4ed8;
+  background-color: #60a5fa;
+  color: #ffffff;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.timer-box.longBreak {
+  border-color: #059669;
+  background-color: #34d399;
+  color: #ffffff;
 }
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}

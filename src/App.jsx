@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
+import './App.css';
 
 function App() {
   // Timer states
   const [workMinutes, setWorkMinutes] = useState(25);
   const [shortBreakMinutes, setShortBreakMinutes] = useState(5);
   const [longBreakMinutes, setLongBreakMinutes] = useState(10);
-  const [mode, setMode] = useState("work"); // work | shortBreak | longBreak
+  const [mode, setMode] = useState("pomodoro"); // pomodoro | shortBreak | longBreak
   const [secondsLeft, setSecondsLeft] = useState(workMinutes * 60);
   const [isRunning, setIsRunning] = useState(false);
   const [completedCycles, setCompletedCycles] = useState(0);
@@ -39,12 +40,12 @@ function App() {
     if (isRunning && secondsLeft > 0) {
       timer = setInterval(() => {
         setSecondsLeft((prev) => prev - 1);
-        if (mode === "work") setStudySeconds((prev) => prev + 1);
+        if (mode === "pomodoro") setStudySeconds((prev) => prev + 1);
       }, 1000);
     } else if (secondsLeft === 0) {
       setIsRunning(false);
 
-      if (mode === "work") {
+      if (mode === "pomodoro") {
         setCompletedCycles((c) => c + 1);
 
         if ((completedCycles + 1) % 4 === 0) {
@@ -57,11 +58,11 @@ function App() {
           sounds.shortBreak.play();
         }
       } else if (mode === "shortBreak") {
-        setMode("work");
+        setMode("pomodoro");
         setSecondsLeft(workMinutes * 60);
         sounds.start.play();
       } else if (mode === "longBreak") {
-        setMode("work");
+        setMode("pomodoro");
         setSecondsLeft(workMinutes * 60);
         sounds.start.play();
       }
@@ -83,7 +84,7 @@ function App() {
       sounds.pause.play();
       setIsRunning(false);
     } else {
-      if (mode === "work") sounds.start.play();
+      if (mode === "pomodoro") sounds.start.play();
       if (mode === "shortBreak") sounds.shortBreak.play();
       if (mode === "longBreak") sounds.longBreak.play();
       setIsRunning(true);
@@ -94,7 +95,7 @@ function App() {
   const handleReset = () => {
     if (window.confirm("Are you sure you want to restart the timer?")) {
       setIsRunning(false);
-      setMode("work");
+      setMode("pomodoro");
       setSecondsLeft(workMinutes * 60);
       setCompletedCycles(0);
       setStudySeconds(0);
@@ -121,7 +122,7 @@ function App() {
 
   // Background colors based on mode
   const bgColor =
-    mode === "work"
+    mode === "pomodoro"
       ? "bg-blue-900"
       : mode === "shortBreak"
       ? "bg-green-900"
@@ -135,17 +136,17 @@ function App() {
       <div className="flex shadow-lg rounded-lg overflow-hidden mb-8">
         <button
           onClick={() => {
-            setMode("work");
+            setMode("pomodoro");
             setSecondsLeft(workMinutes * 60);
             setIsRunning(false);
           }}
           className={`px-6 py-2 font-bold ${
-            mode === "work"
+            mode === "pomodoro"
               ? "bg-blue-600 text-white"
               : "bg-slate-700 hover:bg-slate-600"
           }`}
         >
-          Work
+          Pomodoro
         </button>
         <button
           onClick={() => {
@@ -177,33 +178,31 @@ function App() {
         </button>
       </div>
 
-      {/* Timer */}
-      <div className="flex flex-col items-center flex-grow justify-center">
-        <h2 className="text-3xl mb-4 capitalize font-mono tracking-widest">
-          {mode}
-        </h2>
-        <p className="text-8xl font-bold mb-6 font-mono drop-shadow-lg">
-          {formatTime(secondsLeft)}
-        </p>
-        <div className="flex gap-6">
-          <button
-            onClick={toggleTimer}
-            className="px-6 py-3 bg-green-500 rounded-lg hover:bg-green-600 font-bold text-lg"
-          >
-            {isRunning ? "Pause" : "Start"}
-          </button>
-          <button
-            onClick={handleReset}
-            className="px-6 py-3 bg-red-500 rounded-lg hover:bg-red-600 font-bold text-lg"
-          >
-            Reset
-          </button>
-        </div>
-        <p className="mt-6 text-lg opacity-80">
-          Total Study Time: {Math.floor(studySeconds / 60)} mins{" "}
-          {studySeconds % 60} secs
-        </p>
-      </div>
+{/* Timer Box */}
+<div className={`timer-box ${mode} flex flex-col items-center justify-center mb-8`}>
+  <h2 className="text-4xl mb-6 font-semibold tracking-widest drop-shadow">
+    {mode === "pomodoro"
+      ? "Pomodoro"
+      : mode === "shortBreak"
+      ? "Short Break"
+      : "Long Break"}
+  </h2>
+  <p className="text-[6rem] font-extrabold mb-8 font-mono drop-shadow-2xl">
+    {formatTime(secondsLeft)}
+  </p>
+  <div className="flex gap-8">
+    <button
+      onClick={toggleTimer}
+      className="px-8 py-4 bg-green-500 rounded-xl hover:bg-green-600 font-bold text-2xl shadow-lg transition"
+    >
+      {isRunning ? "Pause" : "Start"}
+    </button>
+    {/* Reset button removed */}
+  </div>
+</div>
+
+
+
 
       {/* Task list */}
       <div className="bg-slate-800 p-6 rounded-lg w-full max-w-lg shadow-lg mt-8">
@@ -258,4 +257,3 @@ function App() {
 }
 
 export default App;
-
