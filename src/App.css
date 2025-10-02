@@ -33,3 +33,74 @@ body, #root {
   color: #ffffff;
 }
 
+/* start */
+.start-btn {
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  backdrop-filter: blur(10px);
+  border: 2px solid;
+}
+
+/* pomodoro */
+.start-btn.pomodoro {
+  background: white;
+  color: #dc2626;      /* red text */
+  border-color: #dc2626;
+}
+.start-btn.pomodoro:hover {
+  background: rgba(255, 255, 255, 0.05); /* transparent glass */
+  color: white;
+  border-color: white;
+}
+
+/* short break */
+.start-btn.shortBreak {
+  background: white;
+  color: #2563eb; 
+  border-color: #2563eb;
+}
+.start-btn.shortBreak:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  border-color: white;
+}
+
+/* long break */
+.start-btn.longBreak {
+  background: white;
+  color: #059669;
+  border-color: #059669;
+}
+.start-btn.longBreak:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  border-color: white;
+}
+
+/* tabs */
+.tab-button {
+  display: inline-flex;
+  padding: 0.6rem 1.5rem;
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background: rgba(0, 0, 0, 0.05);
+  font-weight: bold;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  color: #111;
+}
+
+/* Hover effect for unselected tabs */
+.tab-button:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.tab-button.active {
+  color: #111;
+  border-color: #111;
+  background-color: rgba(0,0,0,0.9);
+}

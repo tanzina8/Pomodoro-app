@@ -132,51 +132,48 @@ function App() {
     <div
       className={`flex flex-col items-center justify-between min-h-screen ${bgColor} text-white p-6 transition-colors duration-500`}
     >
-      {/* Tabs */}
-      <div className="flex shadow-lg rounded-lg overflow-hidden mb-8">
-        <button
-          onClick={() => {
-            setMode("pomodoro");
-            setSecondsLeft(workMinutes * 60);
-            setIsRunning(false);
-          }}
-          className={`px-6 py-2 font-bold ${
-            mode === "pomodoro"
-              ? "bg-blue-600 text-white"
-              : "bg-slate-700 hover:bg-slate-600"
-          }`}
-        >
-          Pomodoro
-        </button>
-        <button
-          onClick={() => {
-            setMode("shortBreak");
-            setSecondsLeft(shortBreakMinutes * 60);
-            setIsRunning(false);
-          }}
-          className={`px-6 py-2 font-bold ${
-            mode === "shortBreak"
-              ? "bg-green-600 text-white"
-              : "bg-slate-700 hover:bg-slate-600"
-          }`}
-        >
-          Short Break
-        </button>
-        <button
-          onClick={() => {
-            setMode("longBreak");
-            setSecondsLeft(longBreakMinutes * 60);
-            setIsRunning(false);
-          }}
-          className={`px-6 py-2 font-bold ${
-            mode === "longBreak"
-              ? "bg-purple-600 text-white"
-              : "bg-slate-700 hover:bg-slate-600"
-          }`}
-        >
-          Long Break
-        </button>
-      </div>
+
+{/* Tabs */}
+<div className="flex justify-center mb-8 gap-4">
+  <button
+    onClick={() => {
+      setMode("pomodoro");
+      setSecondsLeft(workMinutes * 60);
+      setIsRunning(false);
+    }}
+    className={`tab-button px-6 py-2 rounded-full font-bold ${
+      mode === "pomodoro" ? "pomodoro" : ""
+    }`}
+  >
+    Pomodoro
+  </button>
+  <button
+    onClick={() => {
+      setMode("shortBreak");
+      setSecondsLeft(shortBreakMinutes * 60);
+      setIsRunning(false);
+    }}
+    className={`tab-button px-6 py-2 rounded-full font-bold ${
+      mode === "shortBreak" ? "shortBreak" : ""
+    }`}
+  >
+    Short Break
+  </button>
+  <button
+    onClick={() => {
+      setMode("longBreak");
+      setSecondsLeft(longBreakMinutes * 60);
+      setIsRunning(false);
+    }}
+    className={`tab-button px-6 py-2 rounded-full font-bold ${
+      mode === "longBreak" ? "longBreak" : ""
+    }`}
+  >
+    Long Break
+  </button>
+</div>
+
+
 
 {/* Timer Box */}
 <div className={`timer-box ${mode} flex flex-col items-center justify-center mb-8`}>
@@ -193,15 +190,14 @@ function App() {
   <div className="flex gap-8">
     <button
       onClick={toggleTimer}
-      className="px-8 py-4 bg-green-500 rounded-xl hover:bg-green-600 font-bold text-2xl shadow-lg transition"
+      className={`start-btn ${mode}`}
     >
-      {isRunning ? "Pause" : "Start"}
-    </button>
+  {isRunning ? "Pause" : "Start"}
+</button>
+
     {/* Reset button removed */}
   </div>
 </div>
-
-
 
 
       {/* Task list */}
