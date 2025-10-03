@@ -4,7 +4,7 @@ body, #root {
 
 /* Timer Box Styling */
 .timer-box {
-  border: 4px solid #b91c1c; /* darker red border */
+  border: 4px solid #b91c1c; 
   background-color: #f87171;
   padding: 2rem;
   border-radius: 1rem;
@@ -38,19 +38,19 @@ body, #root {
   padding: 1rem 2rem;
   font-size: 1.5rem;
   font-weight: bold;
-  border-radius: 0.5rem;              /* sharper retro look */
+  border-radius: 0.5rem;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   border: 2px solid;
-  font-family: "Press Start 2P", monospace; /* matches pixel timer */
+  font-family: "Press Start 2P", monospace; /* font change */
   text-transform: uppercase;
-  box-shadow: 0 6px 0 #000;           /* retro "depth" */
+  box-shadow: 0 6px 0 #000;
 }
 
 /* Pomodoro start button */
 .start-btn.pomodoro {
   background: #fff;
-  color: #dc2626;         /* red */
+  color: #dc2626;
   border-color: #dc2626;
 }
 .start-btn.pomodoro:hover,
@@ -65,8 +65,8 @@ body, #root {
 /* Short Break start button */
 .start-btn.shortBreak {
   background: #fff;
-  color: #3F527C;        /* blue */
-  border-color: #536897
+  color: #3F527C;
+  border-color: #3F527C;
 }
 .start-btn.shortBreak:hover,
 .start-btn.shortBreak:active {
@@ -80,7 +80,7 @@ body, #root {
 /* Long Break start button */
 .start-btn.longBreak {
   background: #fff;
-  color: #059669;         /* green */
+  color: #059669;
   border-color: #059669;
 }
 .start-btn.longBreak:hover,
@@ -99,18 +99,18 @@ body, #root {
   align-items: center;
   justify-content: center;
   padding: 0.6rem 1.5rem;
-  border-radius: 0.5rem;           /* sharper, arcade-style edges */
-  border: 2px solid #333;          /* neutral dark border */
-  background: #111;                /* simple dark bg */
-  font-family: "Press Start 2P", monospace; /* pixel/arcade vibe if available */
-  font-size: 0.75rem;              /* compact retro text */
+  border-radius: 0.5rem;
+  border: 2px solid #333;
+  background: #111;
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.75rem;
   letter-spacing: 1px;
   font-weight: bold;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
-  color: #eee;                     /* light text for contrast */
+  color: #eee;
   text-transform: uppercase;
-  box-shadow: 0 4px 0 #222;        /* fake "pressable" depth */
+  box-shadow: 0 4px 0 #222;
 }
 
 /* Hover effect */
@@ -120,7 +120,7 @@ body, #root {
   background: #1a1a1a;
 }
 
-/* Active/selected tab */
+/* selected tab */
 .tab-button.pomodoro,
 .tab-button.shortBreak,
 .tab-button.longBreak {
@@ -143,8 +143,8 @@ body, #root {
 .task-panel h3 {
   font-size: 0.9rem;
   margin-bottom: 1rem;
-  color: #fff;                          /* now white instead of cyan */
-  text-shadow: 0 0 6px #fff;            /* retro glow in white */
+  color: #fff; /* changed to white */
+  text-shadow: 0 0 6px #fff;
 }
 
 /* Task name input */
@@ -157,8 +157,8 @@ body, #root {
   font-family: inherit;
   font-size: 0.75rem;
   box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
-  max-width: 250px;  /* limits horizontal length */
-  flex: 2;           /* relative width in flex container */
+  max-width: 250px;  /* changed length */
+  flex: 2;
 }
 
 /* Pomodoro count input */
@@ -172,19 +172,19 @@ body, #root {
   font-size: 0.75rem;
   box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
   max-width: 80px;   /* smaller input for number */
-  flex: 1;           /* relative width in flex container */
+  flex: 1;
 }
 
 .task-panel .input-row {
   display: flex;
   gap: 0.5rem;
-  justify-content: center;   /* center horizontally */
-  align-items: center;       /* center vertically */
+  justify-content: center;
+  align-items: center;
 }
 
 
 .task-panel input:focus {
-  border-color: #fff;                   /* white glow */
+  border-color: #fff;
   outline: none;
   box-shadow: 0 0 6px #fff;
 }
@@ -193,7 +193,7 @@ body, #root {
 .task-panel button {
   background: #fff;
   color: #111;
-  border: 2px solid #fff;               /* white border */
+  border: 2px solid #fff;
   font-family: inherit;
   font-size: 0.75rem;
   font-weight: bold;
@@ -231,17 +231,17 @@ body, #root {
   font-size: 0.7rem;
   letter-spacing: 1px;
   color: #fff;
-  width: 90%;      /* or max-width: 400px; for a fixed size */
+  width: 90%;
   max-width: 400px;
 }
 
-/* Completed Task (dimmed/powered-off) */
+/* Completed Task */
 .task-panel ul li.completed {
   opacity: 0.5;
   background: #0a0a0a;
   border-color: #222;
   text-decoration: line-through;
-  color: #aaa;                          /* faded gray */
+  color: #aaa;
 }
 
 .task-panel ul,
@@ -256,7 +256,7 @@ body, #root {
   background-size: 110%;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed; /* keeps image steady while scrolling */
+  background-attachment: fixed; /* image stays fixed */
   min-height: 100vh;
   width: 100%;
   position: relative;
@@ -266,21 +266,20 @@ body, #root {
   content: none;
 }
 
-/* Make sure all your content sits above overlay */
 .app-container > * {
   position: relative;
   z-index: 1;
 }
 
-/* Theme-specific pixel backgrounds */
+/* backgrounds for tabs */
 .app-container.pomodoro {
-  background-image: url('/src/assets/city.png');  /* Neon city for Pomodoro */
+  background-image: url('/src/assets/city.png');
 }
 
 .app-container.shortBreak {
-  background-image: url('/src/assets/ocean.png'); /* Pixel forest for short break */
+  background-image: url('/src/assets/ocean.png');
 }
 
 .app-container.longBreak {
-  background-image: url('/src/assets/forest.png'); /* Pixel starry sky for long break */
+  background-image: url('/src/assets/forest.png');
 }
