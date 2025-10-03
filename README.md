@@ -1,5 +1,5 @@
-# Pixel Pomodor
-Pixel Pomodoro is a fun, retro inspired web app that helps with prodctiviety using the pomodoro technique. Built with React and Tailwind CSS, it features themed backgrounds that change at the completion of each timer, a interactive task panel, and simple sound alerts.
+# Pixel Pomodoro
+Pixel Pomodoro is a fun, retro inspired web app that helps with productivity using the pomodoro technique. Built with React and Tailwind CSS, it features theme specific backgrounds that change at the completion of each timer, an interactive task panel, and simple sound alerts.
 
 
 ## Features
