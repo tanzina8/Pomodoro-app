@@ -1,16 +1,29 @@
-# React + Vite
+# Pixel Pomodor
+Pixel Pomodoro is a fun, retro inspired web app that helps with prodctiviety using the pomodoro technique. Built with React and Tailwind CSS, it features themed backgrounds that change at the completion of each timer, a interactive task panel, and simple sound alerts.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+## Features
+- Modular componets for task panel, timer, and theme tabs (pomodoro, short break, longbreak)
+- Automatic theme switiching on timer completion (updates background, colors, sounds)
+- Retro/Pixelated UI with game style buttons
+- Task creation and tracking
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## React Compiler
+## Tech Stack
+- React
+- Tailwind CSS
 
-The React Compiler is not enabled on this template. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
+## Installation and Set Up
+1. Clone Repo
+   ```
+   git clone https://github.com/tanzina8/Movie-App
+   cd pomodoro-app
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+2. Install Dependencies
+   ```
+   npm install
+
+3. Start the app 
+   ```
+   npm run dev
