@@ -22,85 +22,265 @@ body, #root {
 }
 
 .timer-box.shortBreak {
-  border-color: #1d4ed8;
-  background-color: #60a5fa;
+  border-color: #3F527C;
+  background-color: #5D75A1;
   color: #ffffff;
 }
 
 .timer-box.longBreak {
-  border-color: #059669;
-  background-color: #34d399;
+  border-color: #466341;
+  background-color: #84964A;
   color: #ffffff;
 }
 
-/* start */
+/* Start Button Base */
 .start-btn {
   padding: 1rem 2rem;
   font-size: 1.5rem;
   font-weight: bold;
-  border-radius: 1rem;
+  border-radius: 0.5rem;              /* sharper retro look */
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  backdrop-filter: blur(10px);
+  transition: all 0.2s ease-in-out;
   border: 2px solid;
+  font-family: "Press Start 2P", monospace; /* matches pixel timer */
+  text-transform: uppercase;
+  box-shadow: 0 6px 0 #000;           /* retro "depth" */
 }
 
-/* pomodoro */
+/* Pomodoro start button */
 .start-btn.pomodoro {
-  background: white;
-  color: #dc2626;      /* red text */
+  background: #fff;
+  color: #dc2626;         /* red */
   border-color: #dc2626;
 }
-.start-btn.pomodoro:hover {
-  background: rgba(255, 255, 255, 0.05); /* transparent glass */
-  color: white;
-  border-color: white;
+.start-btn.pomodoro:hover,
+.start-btn.pomodoro:active {
+  background: #111;
+  color: #fff;
+  border-color: #fff;
+  transform: translateY(-2px);
+  box-shadow: inset 0 0 8px rgba(255, 50, 50, 0.4), 0 6px 0 #000;
 }
 
-/* short break */
+/* Short Break start button */
 .start-btn.shortBreak {
-  background: white;
-  color: #2563eb; 
-  border-color: #2563eb;
+  background: #fff;
+  color: #3F527C;        /* blue */
+  border-color: #536897
 }
-.start-btn.shortBreak:hover {
-  background: rgba(255, 255, 255, 0.05);
-  color: white;
-  border-color: white;
+.start-btn.shortBreak:hover,
+.start-btn.shortBreak:active {
+  background: #111;
+  color: #fff;
+  border-color: #fff;
+  transform: translateY(-2px);
+  box-shadow: inset 0 0 8px rgba(37, 99, 235, 0.4), 0 6px 0 #000;
 }
 
-/* long break */
+/* Long Break start button */
 .start-btn.longBreak {
-  background: white;
-  color: #059669;
+  background: #fff;
+  color: #059669;         /* green */
   border-color: #059669;
 }
-.start-btn.longBreak:hover {
-  background: rgba(255, 255, 255, 0.05);
-  color: white;
-  border-color: white;
+.start-btn.longBreak:hover,
+.start-btn.longBreak:active {
+  background: #111;
+  color: #fff;
+  border-color: #fff;
+  transform: translateY(-2px);
+  box-shadow: inset 0 0 8px rgba(5, 150, 105, 0.4), 0 6px 0 #000;
 }
 
-/* tabs */
+
+/* Tab Buttons */
 .tab-button {
   display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 0.6rem 1.5rem;
-  border-radius: 9999px;
-  border: 2px solid transparent;
-  background: rgba(0, 0, 0, 0.05);
+  border-radius: 0.5rem;           /* sharper, arcade-style edges */
+  border: 2px solid #333;          /* neutral dark border */
+  background: #111;                /* simple dark bg */
+  font-family: "Press Start 2P", monospace; /* pixel/arcade vibe if available */
+  font-size: 0.75rem;              /* compact retro text */
+  letter-spacing: 1px;
   font-weight: bold;
-  transition: all 0.3s ease;
   cursor: pointer;
-  color: #111;
+  transition: all 0.2s ease-in-out;
+  color: #eee;                     /* light text for contrast */
+  text-transform: uppercase;
+  box-shadow: 0 4px 0 #222;        /* fake "pressable" depth */
 }
 
-/* Hover effect for unselected tabs */
+/* Hover effect */
 .tab-button:hover {
-  background: rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 #000;
+  background: #1a1a1a;
 }
 
-.tab-button.active {
+/* Active/selected tab */
+.tab-button.pomodoro,
+.tab-button.shortBreak,
+.tab-button.longBreak {
+  background: #222;
+  color: #fff;
+  border-color: #fff;
+  box-shadow: inset 0 0 8px rgba(255,255,255,0.2), 0 4px 0 #000;
+}
+
+.task-panel {
+  padding: 1.5rem;
+  box-shadow: 0 6px 0 #000;
+  font-family: "Press Start 2P", monospace;
+  text-transform: uppercase;
+  color: #eee;
+}
+
+
+/* Task Panel Title */
+.task-panel h3 {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  color: #fff;                          /* now white instead of cyan */
+  text-shadow: 0 0 6px #fff;            /* retro glow in white */
+}
+
+/* Task name input */
+.task-panel input[type="text"] {
+  background: #111;
+  border: 2px solid #444;
+  color: #eee;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  font-family: inherit;
+  font-size: 0.75rem;
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+  max-width: 250px;  /* limits horizontal length */
+  flex: 2;           /* relative width in flex container */
+}
+
+/* Pomodoro count input */
+.task-panel input[type="number"] {
+  background: #111;
+  border: 2px solid #444;
+  color: #eee;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  font-family: inherit;
+  font-size: 0.75rem;
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+  max-width: 80px;   /* smaller input for number */
+  flex: 1;           /* relative width in flex container */
+}
+
+.task-panel .input-row {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;   /* center horizontally */
+  align-items: center;       /* center vertically */
+}
+
+
+.task-panel input:focus {
+  border-color: #fff;                   /* white glow */
+  outline: none;
+  box-shadow: 0 0 6px #fff;
+}
+
+/* Add Button */
+.task-panel button {
+  background: #fff;
   color: #111;
-  border-color: #111;
-  background-color: rgba(0,0,0,0.9);
+  border: 2px solid #fff;               /* white border */
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 0.6rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 4px 0 #000;
+}
+
+.task-panel button:hover {
+  background: #111;
+  color: #fff;
+  border-color: #fff;
+  box-shadow: inset 0 0 8px #fff, 0 4px 0 #000;
+}
+
+.task-panel ul {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center; /* centers the list items horizontally */
+}
+.task-panel ul li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #1a1a1a;
+  padding: 0.6rem 1rem;
+  border: 2px solid #333;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease-in-out;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  color: #fff;
+  width: 90%;      /* or max-width: 400px; for a fixed size */
+  max-width: 400px;
+}
+
+/* Completed Task (dimmed/powered-off) */
+.task-panel ul li.completed {
+  opacity: 0.5;
+  background: #0a0a0a;
+  border-color: #222;
+  text-decoration: line-through;
+  color: #aaa;                          /* faded gray */
+}
+
+.task-panel ul,
+.task-panel h3 {
+  background: transparent;
+  padding: 0.5rem;
+  border-radius: 6px;
+}
+
+/* Base app container */
+.app-container {
+  background-size: 110%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* keeps image steady while scrolling */
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+.app-container::before {
+  content: none;
+}
+
+/* Make sure all your content sits above overlay */
+.app-container > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Theme-specific pixel backgrounds */
+.app-container.pomodoro {
+  background-image: url('/src/assets/city.png');  /* Neon city for Pomodoro */
+}
+
+.app-container.shortBreak {
+  background-image: url('/src/assets/ocean.png'); /* Pixel forest for short break */
+}
+
+.app-container.longBreak {
+  background-image: url('/src/assets/forest.png'); /* Pixel starry sky for long break */
 }

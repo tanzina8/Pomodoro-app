@@ -130,7 +130,7 @@ function App() {
 
   return (
     <div
-      className={`flex flex-col items-center justify-between min-h-screen ${bgColor} text-white p-6 transition-colors duration-500`}
+      className={`app-container flex flex-col items-center justify-between min-h-screen text-white p-6 transition-colors duration-500 ${mode}`}
     >
 
 {/* Tabs */}
@@ -201,9 +201,8 @@ function App() {
 
 
       {/* Task list */}
-      <div className="bg-slate-800 p-6 rounded-lg w-full max-w-lg shadow-lg mt-8">
-        <h3 className="mb-3 text-xl font-bold">Tasks</h3>
-        <div className="flex gap-2 mb-4">
+      <div className="task-panel bg-slate-800 p-6 rounded-lg w-full max-w-lg shadow-lg mt-8">
+        <div className="input-row mb-4">
           <input
             type="text"
             value={taskName}
